@@ -11,12 +11,11 @@ st.title("Keyword Search in German Notes")
 
 
 # Google Drive File ID (replace with your actual file ID)
-file_id = "1MynIcAnZAscupoPYQ4WBlfvonLZMF-yT"  
-
+file_id = "1gIMc_ui0chO6gb3GMSxwjq---8s9Ljil"  
 # Construct the direct download URL
 gdrive_url = f"https://drive.google.com/uc?id={file_id}"
 
-#df_prep_notes_de = pd.read_csv("data/df_X_German_preprocessed.csv", low_memory=False)
+#df_prep_notes_de = pd.read_csv("data/df_X_German.csv", low_memory=False)
 
 # Read CSV from Google Drive
 @st.cache_data
@@ -41,7 +40,7 @@ plot = st.empty()
 if keyword_searched.strip():
     # Fix SettingWithCopyWarning: Use .copy()
     filtered_df = df_prep_notes_de[
-        df_prep_notes_de['cleaned_summary'].str.contains(keyword_searched, case=False, na=False)
+        df_prep_notes_de['summary'].str.contains(keyword_searched, case=False, na=False)
     ].copy()
 
     # Convert 'date' safely, handle errors
@@ -78,4 +77,4 @@ if keyword_searched.strip():
     # Display interactive Plotly chart
     plot.plotly_chart(fig)
 else:
-    st.write("Please enter a keyword in the textbar to search for it in the German notes. You have access to the preprocessed dataset at the moment where URLs are excluded.")
+    st.write("Please enter a keyword in the textbar to search for it in the German notes. You have access to the unpreprocessed dataset at the moment where the variation in the words might count as different.")
