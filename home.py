@@ -19,11 +19,14 @@ gdrive_url = f"https://drive.google.com/uc?id={file_id}"
 #df_prep_notes_de = pd.read_csv("data/df_X_German_preprocessed.csv", low_memory=False)
 
 # Read CSV from Google Drive
-@st.cache_data
+@st.cache_data(ttl=3600)
 def load_data():
     return pd.read_csv(gdrive_url, low_memory=False)
 
 df_prep_notes_de = load_data()
+
+# df_prep_notes_de = pd.read_csv(gdrive_url, low_memory=False)
+# st.write("Data loaded successfully:", df_prep_notes_de.shape)
 
 # Check problematic columns and convert to strings
 cols_to_fix = ['col_5_name', 'col_6_name', 'col_7_name']  # Replace with actual column names
