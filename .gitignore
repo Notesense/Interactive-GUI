@@ -1,0 +1,11 @@
+# ignore unnecessary files
+.vscode
+.DS_STORE
+.ipy*
+.py*
+.stre*
+data/*
+__pycache__/
+.streamlit/
+venv/
+.e
