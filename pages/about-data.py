@@ -22,7 +22,17 @@ While Community Notes has shown promise in combating misinformation, with a stud
 Understanding the main themes and narratives within large-scale textual data is crucial for gaining insights into public discourse and dynamics. 
 
             
-       
+### Preprocessing for this data:
+The data has been preprocessed to ensure consistency and facilitate analysis. The following steps were taken: <br>
+    1. Convert to lowercase <br>
+    2. Standardize accent characters (ä → ae, ö → oe, ü → ue, ß → ss) <br>
+    3. Remove URLs <br>
+    4. Expand contractions (e.g., "am" → "an dem", "ins" → "in das") <br>
+    5. Remove mentions (@) and hashtags (#) <br>
+    6. Keep only alphabetic characters (optionally preserve hyphens in compound words) <br>
+    7. Remove stopwords and very short words (2 letters and less) <br>
+    8. Lemmatization using a German-specific lemmatizer <br>
+                
 ### Citations:
 [1] X: Introduction to Community Notes, x.com. Available at: https://communitynotes.x.com/guide/en/about/introduction (Accessed: 07 February 2025).  <br>
 [2] Buterin, V. (2023) What do I think about community notes?, Vitalik Buterin’s website. Available at: https://vitalik.eth.limo/general/2023/08/16/communitynotes.html (Accessed: 07 February 2025). <br>
